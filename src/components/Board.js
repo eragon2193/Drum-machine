@@ -1,7 +1,6 @@
 import { Pad } from "./Pad"
 
 export function Board(props) {
-
 const padData = [
   {'key':'Q',
    'link':'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3',
@@ -31,12 +30,13 @@ const padData = [
    'link':'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3',
    'name': 'Closed-HH'}
 ]
+
 const pads = padData.map(x => 
-  <Pad key={x.key} letter={x.key} id={x.name} link={x.link} volume={props.volume}></Pad>
+  <Pad key={x.key} letter={x.key} id={x.name} setInstName={props.setInstName} link={x.link} volume={props.volume}></Pad>
 )
   return(
-    <div id="display">
-      
+    <div id="left-display">
+      <div id="display">{props.instName}</div>
       <div id="display-pads">{pads}</div>
     </div>
   )
