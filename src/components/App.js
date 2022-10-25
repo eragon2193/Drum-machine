@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Board } from "./Board";
+import { Menu } from "./Menu";
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
     {
       currentAudio.volume = volume
       currentAudio.play();
+      document.getElementById('display').innerText = 0;
     }
     else{
       return;
@@ -25,9 +27,8 @@ function App() {
   return (
     <div id="drum-machine" className="App">
         <Board volume={volume} />
-      <div id="menu">
-          <input onInput={VolumeChange} id="volume-bar" type="range"></input>
-      </div>
+
+        <Menu func={VolumeChange}/>
     </div>
   );
 }
